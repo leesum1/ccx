@@ -342,12 +342,12 @@ watch(() => props.open, (isOpen) => {
                       <span class="text-[11px] text-muted-foreground">{{ t('env.runtimeCbRequestTimeout') }}</span>
                       <span class="text-[11px] font-mono font-medium">{{ (form.requestTimeoutMs / 1000) + 's' }}</span>
                     </div>
-                    <div class="cb-slider-shell" :style="sliderStyle(form.requestTimeoutMs, 1000, 300000)">
+                    <div class="cb-slider-shell" :style="sliderStyle(form.requestTimeoutMs, 1000, 99999999)">
                       <input
                         type="range"
                         :value="form.requestTimeoutMs"
                         :min="1000"
-                        :max="300000"
+                        :max="99999999"
                         step="1000"
                         class="cb-slider-input"
                         :aria-label="t('env.runtimeCbRequestTimeout')"
@@ -360,7 +360,7 @@ watch(() => props.open, (isOpen) => {
                         <div class="cb-slider-thumb" />
                       </div>
                     </div>
-                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>300s</span></div>
+                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>99999999s</span></div>
                   </div>
 
                   <div class="w-px bg-border self-stretch" />
@@ -370,12 +370,12 @@ watch(() => props.open, (isOpen) => {
                       <span class="text-[11px] text-muted-foreground">{{ t('env.runtimeCbResponseHeaderTimeout') }}</span>
                       <span class="text-[11px] font-mono font-medium">{{ (form.responseHeaderTimeoutMs / 1000) + 's' }}</span>
                     </div>
-                    <div class="cb-slider-shell" :style="sliderStyle(form.responseHeaderTimeoutMs, 1000, 300000)">
+                    <div class="cb-slider-shell" :style="sliderStyle(form.responseHeaderTimeoutMs, 1000, 99999999)">
                       <input
                         type="range"
                         :value="form.responseHeaderTimeoutMs"
                         :min="1000"
-                        :max="300000"
+                        :max="99999999"
                         step="1000"
                         class="cb-slider-input"
                         :aria-label="t('env.runtimeCbResponseHeaderTimeout')"
@@ -388,7 +388,7 @@ watch(() => props.open, (isOpen) => {
                         <div class="cb-slider-thumb" />
                       </div>
                     </div>
-                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>300s</span></div>
+                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>99999999s</span></div>
                   </div>
                 </div>
                 </div>
@@ -405,12 +405,12 @@ watch(() => props.open, (isOpen) => {
                       <span class="text-[11px] text-muted-foreground">{{ t('env.runtimeCbStreamFirstContentTimeout') }}</span>
                       <span class="text-[11px] font-mono font-medium">{{ (form.streamFirstContentTimeoutMs / 1000) + 's' }}</span>
                     </div>
-                    <div class="cb-slider-shell" :style="sliderStyle(form.streamFirstContentTimeoutMs, 5000, 300000)">
+                    <div class="cb-slider-shell" :style="sliderStyle(form.streamFirstContentTimeoutMs, 5000, 99999999)">
                       <input
                         type="range"
                         :value="form.streamFirstContentTimeoutMs"
                         :min="5000"
-                        :max="300000"
+                        :max="99999999"
                         step="1000"
                         class="cb-slider-input"
                         :aria-label="t('env.runtimeCbStreamFirstContentTimeout')"
@@ -423,7 +423,7 @@ watch(() => props.open, (isOpen) => {
                         <div class="cb-slider-thumb" />
                       </div>
                     </div>
-                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>5s</span><span>300s</span></div>
+                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>5s</span><span>99999999s</span></div>
                   </div>
 
                   <div class="w-px bg-border self-stretch" />
@@ -433,12 +433,12 @@ watch(() => props.open, (isOpen) => {
                       <span class="text-[11px] text-muted-foreground">{{ t('env.runtimeCbStreamInactivityTimeout') }}</span>
                       <span class="text-[11px] font-mono font-medium">{{ (form.streamInactivityTimeoutMs / 1000) + 's' }}</span>
                     </div>
-                    <div class="cb-slider-shell" :style="sliderStyle(form.streamInactivityTimeoutMs, 1000, 180000)">
+                    <div class="cb-slider-shell" :style="sliderStyle(form.streamInactivityTimeoutMs, 1000, 99999999)">
                       <input
                         type="range"
                         :value="form.streamInactivityTimeoutMs"
                         :min="1000"
-                        :max="180000"
+                        :max="99999999"
                         step="1000"
                         class="cb-slider-input"
                         :aria-label="t('env.runtimeCbStreamInactivityTimeout')"
@@ -451,7 +451,7 @@ watch(() => props.open, (isOpen) => {
                         <div class="cb-slider-thumb" />
                       </div>
                     </div>
-                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>180s</span></div>
+                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>1s</span><span>99999999s</span></div>
                   </div>
 
                   <div class="w-px bg-border self-stretch" />
@@ -461,12 +461,12 @@ watch(() => props.open, (isOpen) => {
                       <span class="text-[11px] text-muted-foreground">{{ t('env.runtimeCbStreamToolCallIdleTimeout') }}</span>
                       <span class="text-[11px] font-mono font-medium">{{ (form.streamToolCallIdleTimeoutMs / 1000) + 's' }}</span>
                     </div>
-                    <div class="cb-slider-shell" :style="sliderStyle(form.streamToolCallIdleTimeoutMs, 30000, 300000)">
+                    <div class="cb-slider-shell" :style="sliderStyle(form.streamToolCallIdleTimeoutMs, 30000, 99999999)">
                       <input
                         type="range"
                         :value="form.streamToolCallIdleTimeoutMs"
                         :min="30000"
-                        :max="300000"
+                        :max="99999999"
                         step="1000"
                         class="cb-slider-input"
                         :aria-label="t('env.runtimeCbStreamToolCallIdleTimeout')"
@@ -479,7 +479,7 @@ watch(() => props.open, (isOpen) => {
                         <div class="cb-slider-thumb" />
                       </div>
                     </div>
-                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>30s</span><span>300s</span></div>
+                    <div class="flex justify-between text-[10px] text-muted-foreground"><span>30s</span><span>99999999s</span></div>
                   </div>
                 </div>
                 </div>

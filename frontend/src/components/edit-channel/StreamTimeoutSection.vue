@@ -27,14 +27,14 @@
               :value="requestTimeoutSeconds"
               type="range"
               min="1"
-              max="300"
+              max="99999999"
               step="1"
               class="timeout-slider"
               :disabled="!requestTimeoutEnabled"
               @input="emitSeconds('update:requestTimeoutMs', $event)"
             />
             <div class="timeout-range">
-              <span>1s</span><span>300s</span>
+              <span>1s</span><span>99999999s</span>
             </div>
           </div>
 
@@ -57,14 +57,14 @@
               :value="responseHeaderTimeoutSeconds"
               type="range"
               min="1"
-              max="300"
+              max="99999999"
               step="1"
               class="timeout-slider"
               :disabled="!responseHeaderTimeoutEnabled"
               @input="emitSeconds('update:responseHeaderTimeoutMs', $event)"
             />
             <div class="timeout-range">
-              <span>1s</span><span>300s</span>
+              <span>1s</span><span>99999999s</span>
             </div>
           </div>
         </div>
@@ -102,14 +102,14 @@
               :value="firstContentMs"
               type="range"
               min="5000"
-              max="300000"
+              max="99999999"
               step="1000"
               class="timeout-slider"
               :disabled="!firstContentEnabled"
               @input="emitNumber('update:firstContentMs', $event)"
             />
             <div class="timeout-range">
-              <span>5s</span><span>300s</span>
+              <span>5s</span><span>99999999s</span>
             </div>
           </div>
 
@@ -123,14 +123,14 @@
               :value="inactivityMs"
               type="range"
               min="1000"
-              max="180000"
+              max="99999999"
               step="1000"
               class="timeout-slider"
               :disabled="!inactivityEnabled"
               @input="emitNumber('update:inactivityMs', $event)"
             />
             <div class="timeout-range">
-              <span>1s</span><span>180s</span>
+              <span>1s</span><span>99999999s</span>
             </div>
           </div>
 
@@ -144,14 +144,14 @@
               :value="toolCallIdleMs"
               type="range"
               min="30000"
-              max="300000"
+              max="99999999"
               step="1000"
               class="timeout-slider"
               :disabled="!toolCallIdleEnabled"
               @input="emitNumber('update:toolCallIdleMs', $event)"
             />
             <div class="timeout-range">
-              <span>30s</span><span>300s</span>
+              <span>30s</span><span>99999999s</span>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ const isOptionalTimeoutEnabled = (value: string | number | null | undefined) => 
 const timeoutSeconds = (value: string | number | null | undefined, fallbackMs = DEFAULT_OPTIONAL_TIMEOUT_MS) => {
   const ms = Number(value)
   const safeMs = Number.isFinite(ms) && ms > 0 ? ms : fallbackMs
-  return Math.min(300, Math.max(1, Math.round(safeMs / 1000)))
+  return Math.min(99999999, Math.max(1, Math.round(safeMs / 1000)))
 }
 
 const requestTimeoutEnabled = computed(() => isOptionalTimeoutEnabled(props.requestTimeoutMs))

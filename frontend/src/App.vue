@@ -509,13 +509,13 @@
                 type="range"
                 :value="cbForm.requestTimeoutMs"
                 :min="1000"
-                :max="300000"
+                :max="99999999"
                 step="1000"
                 class="cb-slider w-100"
                 @input="onSliderChange('requestTimeoutMs', $event)"
               />
               <div class="cb-slider-range">
-                <span>1s</span><span>300s</span>
+                <span>1s</span><span>99999999s</span>
               </div>
             </div>
 
@@ -528,13 +528,13 @@
                 type="range"
                 :value="cbForm.responseHeaderTimeoutMs"
                 :min="1000"
-                :max="300000"
+                :max="99999999"
                 step="1000"
                 class="cb-slider w-100"
                 @input="onSliderChange('responseHeaderTimeoutMs', $event)"
               />
               <div class="cb-slider-range">
-                <span>1s</span><span>300s</span>
+                <span>1s</span><span>99999999s</span>
               </div>
             </div>
           </div>
@@ -551,13 +551,13 @@
                 type="range"
                 :value="cbForm.streamFirstContentTimeoutMs"
                 :min="5000"
-                :max="300000"
+                :max="99999999"
                 step="1000"
                 class="cb-slider w-100"
                 @input="onSliderChange('streamFirstContentTimeoutMs', $event)"
               />
               <div class="cb-slider-range">
-                <span>5s</span><span>300s</span>
+                <span>5s</span><span>99999999s</span>
               </div>
             </div>
 
@@ -571,13 +571,13 @@
                 type="range"
                 :value="cbForm.streamInactivityTimeoutMs"
                 :min="1000"
-                :max="180000"
+                :max="99999999"
                 step="1000"
                 class="cb-slider w-100"
                 @input="onSliderChange('streamInactivityTimeoutMs', $event)"
               />
               <div class="cb-slider-range">
-                <span>1s</span><span>180s</span>
+                <span>1s</span><span>99999999s</span>
               </div>
             </div>
 
@@ -591,13 +591,13 @@
                 type="range"
                 :value="cbForm.streamToolCallIdleTimeoutMs"
                 :min="30000"
-                :max="300000"
+                :max="99999999"
                 step="1000"
                 class="cb-slider w-100"
                 @input="onSliderChange('streamToolCallIdleTimeoutMs', $event)"
               />
               <div class="cb-slider-range">
-                <span>30s</span><span>300s</span>
+                <span>30s</span><span>99999999s</span>
               </div>
             </div>
           </div>
