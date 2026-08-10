@@ -1205,12 +1205,12 @@ type CircuitBreakerConfig struct {
 	FailureThreshold             *float64 `json:"failureThreshold,omitempty"`
 	ConsecutiveFailuresThreshold *int     `json:"consecutiveFailuresThreshold,omitempty"`
 	// 上游请求生命周期全局默认参数
-	RequestTimeoutMs        *int `json:"requestTimeoutMs,omitempty"`        // 非流式上游请求超时（ms，范围 1000-300000）
-	ResponseHeaderTimeoutMs *int `json:"responseHeaderTimeoutMs,omitempty"` // 等待上游 HTTP 响应头超时（ms，范围 1000-300000）
-	// 流式健康检测全局默认参数
-	StreamFirstContentTimeoutMs *int `json:"streamFirstContentTimeoutMs,omitempty"` // HTTP 200 后首个有效内容等待超时（ms，范围 5000-300000）
-	StreamInactivityTimeoutMs   *int `json:"streamInactivityTimeoutMs,omitempty"`   // 首字后连续性确认窗口（ms，范围 1000-180000）
-	StreamToolCallIdleTimeoutMs *int `json:"streamToolCallIdleTimeoutMs,omitempty"` // 工具调用空闲超时（ms，范围 30000-300000）
+RequestTimeoutMs        *int `json:"requestTimeoutMs,omitempty"`        // 非流式上游请求超时（ms，范围 1000-99999999）
+	ResponseHeaderTimeoutMs *int `json:"responseHeaderTimeoutMs,omitempty"` // 等待上游 HTTP 响应头超时（ms，范围 1000-99999999）
+
+	StreamFirstContentTimeoutMs *int `json:"streamFirstContentTimeoutMs,omitempty"` // HTTP 200 后首个有效内容等待超时（ms，范围 5000-99999999）
+	StreamInactivityTimeoutMs   *int `json:"streamInactivityTimeoutMs,omitempty"`   // 首字后连续性确认窗口（ms，范围 1000-99999999）
+	StreamToolCallIdleTimeoutMs *int `json:"streamToolCallIdleTimeoutMs,omitempty"` // 工具调用空闲超时（ms，范围 30000-99999999）
 }
 
 type Config struct {
@@ -1879,8 +1879,8 @@ func (cm *ConfigManager) SetCircuitBreakerConfig(update CircuitBreakerConfig) er
 		v := *update.StreamFirstContentTimeoutMs
 		if v < 5000 {
 			v = 5000
-		} else if v > 300000 {
-			v = 300000
+		} else if v > 99999999 {
+			v = 99999999
 		}
 		cb.StreamFirstContentTimeoutMs = &v
 	}
@@ -1888,8 +1888,8 @@ func (cm *ConfigManager) SetCircuitBreakerConfig(update CircuitBreakerConfig) er
 		v := *update.StreamInactivityTimeoutMs
 		if v < 1000 {
 			v = 1000
-		} else if v > 180000 {
-			v = 180000
+		} else if v > 99999999 {
+			v = 99999999
 		}
 		cb.StreamInactivityTimeoutMs = &v
 	}
@@ -1897,8 +1897,8 @@ func (cm *ConfigManager) SetCircuitBreakerConfig(update CircuitBreakerConfig) er
 		v := *update.StreamToolCallIdleTimeoutMs
 		if v < 30000 {
 			v = 30000
-		} else if v > 300000 {
-			v = 300000
+		} else if v > 99999999 {
+			v = 99999999
 		}
 		cb.StreamToolCallIdleTimeoutMs = &v
 	}

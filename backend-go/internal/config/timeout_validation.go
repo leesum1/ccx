@@ -4,9 +4,9 @@ import "fmt"
 
 const (
 	MinRequestTimeoutMs        = 1000
-	MaxRequestTimeoutMs        = 300000
+	MaxRequestTimeoutMs        = 99999999
 	MinResponseHeaderTimeoutMs = 1000
-	MaxResponseHeaderTimeoutMs = 300000
+	MaxResponseHeaderTimeoutMs = 99999999
 )
 
 func validateRequestTimeoutMs(value int) error {

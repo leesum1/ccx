@@ -96,7 +96,7 @@ func TestSetCircuitBreaker_RejectsInvalidRequestLifecycleTimeouts(t *testing.T) 
 	gin.SetMode(gin.TestMode)
 	cfgManager := newSettingsTestConfigManager(t)
 
-	w := performSettingsJSON(SetCircuitBreaker(cfgManager), http.MethodPut, `{"requestTimeoutMs":300001}`)
+	w := performSettingsJSON(SetCircuitBreaker(cfgManager), http.MethodPut, `{"requestTimeoutMs":100000000}`)
 	if w.Code != http.StatusBadRequest {
 		t.Fatalf("requestTimeoutMs status = %d, want %d", w.Code, http.StatusBadRequest)
 	}

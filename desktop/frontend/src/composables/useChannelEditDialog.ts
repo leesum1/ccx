@@ -535,13 +535,13 @@ const { t } = useLanguage()
     if (!hasConfigurableKeys.value && form.serviceType !== 'copilot') errs.apiKeys = t('channelEditor.auth.apiKeyRequired')
     if (String(form.requestTimeoutMs).trim()) {
       const timeout = Number(form.requestTimeoutMs)
-      if (!Number.isInteger(timeout) || timeout < 1000 || timeout > 300000) {
+      if (!Number.isInteger(timeout) || timeout < 1000 || timeout > 99999999) {
         errs.requestTimeoutMs = t('channelEditor.transport.requestTimeout.invalid')
       }
     }
     if (String(form.responseHeaderTimeoutMs).trim()) {
       const timeout = Number(form.responseHeaderTimeoutMs)
-      if (!Number.isInteger(timeout) || timeout < 1000 || timeout > 300000) {
+      if (!Number.isInteger(timeout) || timeout < 1000 || timeout > 99999999) {
         errs.responseHeaderTimeoutMs = t('channelEditor.transport.responseHeaderTimeout.invalid')
       }
     }

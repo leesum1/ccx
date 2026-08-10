@@ -356,12 +356,12 @@ export function useEditChannelModal(props: ResolvedEditChannelModalProps, emit: 
     requestTimeoutMs: (value: string | number | null) => {
       if (value === null || value === undefined || value === '') return true
       const timeout = Number(value)
-      return (Number.isInteger(timeout) && timeout >= 1000 && timeout <= 300000) || t('addChannel.requestTimeoutMsInvalid')
+      return (Number.isInteger(timeout) && timeout >= 1000 && timeout <= 99999999) || t('addChannel.requestTimeoutMsInvalid')
     },
     responseHeaderTimeoutMs: (value: string | number | null) => {
       if (value === null || value === undefined || value === '') return true
       const timeout = Number(value)
-      return (Number.isInteger(timeout) && timeout >= 1000 && timeout <= 300000) || t('addChannel.responseHeaderTimeoutMsInvalid')
+      return (Number.isInteger(timeout) && timeout >= 1000 && timeout <= 99999999) || t('addChannel.responseHeaderTimeoutMsInvalid')
     }
   }
 

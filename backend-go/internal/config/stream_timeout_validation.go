@@ -4,11 +4,11 @@ import "fmt"
 
 const (
 	minStreamFirstContentTimeoutMs = 5000
-	maxStreamFirstContentTimeoutMs = 300000
+	maxStreamFirstContentTimeoutMs = 99999999
 	minStreamInactivityTimeoutMs   = 1000
-	maxStreamInactivityTimeoutMs   = 180000
+	maxStreamInactivityTimeoutMs   = 99999999
 	minStreamToolCallIdleTimeoutMs = 30000
-	maxStreamToolCallIdleTimeoutMs = 300000
+	maxStreamToolCallIdleTimeoutMs = 99999999
 )
 
 func validateStreamFirstContentTimeoutMs(value int) error {

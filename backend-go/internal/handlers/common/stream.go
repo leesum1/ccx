@@ -42,9 +42,9 @@ func streamPreflightEmptyError(preflight *StreamPreflightResult) error {
 
 // StreamPreflightTimeouts 流式预检测超时参数
 type StreamPreflightTimeouts struct {
-	FirstContentTimeoutMs int // 阶段A：首个有效内容等待超时（ms，范围 5000-300000）
-	InactivityTimeoutMs   int // 阶段B：首字后连续性确认窗口（ms，范围 1000-180000）
-	ToolCallIdleTimeoutMs int // 工具调用空闲超时（ms，范围 30000-300000）
+	FirstContentTimeoutMs int // 阶段A：首个有效内容等待超时（ms，范围 5000-99999999）
+	InactivityTimeoutMs   int // 阶段B：首字后连续性确认窗口（ms，范围 1000-99999999）
+	ToolCallIdleTimeoutMs int // 工具调用空闲超时（ms，范围 30000-99999999）
 }
 
 const shortStreamEOFRetryTokenThreshold = 20
@@ -64,8 +64,8 @@ func ResolveStreamFirstContentTimeout(channelValue int, globalValue int) int {
 	}
 	if val < 5000 {
 		val = 5000
-	} else if val > 300000 {
-		val = 300000
+	} else if val > 99999999 {
+		val = 99999999
 	}
 	return val
 }
@@ -78,8 +78,8 @@ func ResolveStreamInactivityTimeout(channelValue int, globalValue int) int {
 	}
 	if val < 1000 {
 		val = 1000
-	} else if val > 180000 {
-		val = 180000
+	} else if val > 99999999 {
+		val = 99999999
 	}
 	return val
 }
@@ -92,8 +92,8 @@ func ResolveStreamToolCallIdleTimeout(channelValue int, globalValue int) int {
 	}
 	if val < 30000 {
 		val = 30000
-	} else if val > 300000 {
-		val = 300000
+	} else if val > 99999999 {
+		val = 99999999
 	}
 	return val
 }
