@@ -570,12 +570,12 @@ export function buildChannelPayload(
       : 0
 
   const requestTimeoutMs = Number(form.requestTimeoutMs)
-  if (Number.isInteger(requestTimeoutMs) && requestTimeoutMs >= 1000 && requestTimeoutMs <= 300000) {
+  if (Number.isInteger(requestTimeoutMs) && requestTimeoutMs >= 1000 && requestTimeoutMs <= 99999999) {
     channelData.requestTimeoutMs = requestTimeoutMs
   }
 
   const responseHeaderTimeoutMs = Number(form.responseHeaderTimeoutMs)
-  if (Number.isInteger(responseHeaderTimeoutMs) && responseHeaderTimeoutMs >= 1000 && responseHeaderTimeoutMs <= 300000) {
+  if (Number.isInteger(responseHeaderTimeoutMs) && responseHeaderTimeoutMs >= 1000 && responseHeaderTimeoutMs <= 99999999) {
     channelData.responseHeaderTimeoutMs = responseHeaderTimeoutMs
   }
 

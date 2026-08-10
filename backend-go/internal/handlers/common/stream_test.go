@@ -98,9 +98,9 @@ func TestResolveStreamToolCallIdleTimeout_ClampsToRange(t *testing.T) {
 		wantTimeout int
 	}{
 		{name: "below minimum", channel: 999, global: 3000, wantTimeout: 30000},
-		{name: "above maximum", channel: 300001, global: 120000, wantTimeout: 300000},
+		{name: "above maximum", channel: 100000000, global: 120000, wantTimeout: 99999999},
 		{name: "global below minimum", channel: 0, global: 999, wantTimeout: 30000},
-		{name: "global above maximum", channel: 0, global: 300001, wantTimeout: 300000},
+		{name: "global above maximum", channel: 0, global: 100000000, wantTimeout: 99999999},
 	}
 
 	for _, tt := range tests {
@@ -121,9 +121,9 @@ func TestResolveStreamInactivityTimeout_ClampsToRange(t *testing.T) {
 		wantTimeout int
 	}{
 		{name: "below minimum", channel: 999, global: 3000, wantTimeout: 1000},
-		{name: "above maximum", channel: 180001, global: 3000, wantTimeout: 180000},
+		{name: "above maximum", channel: 100000000, global: 3000, wantTimeout: 99999999},
 		{name: "global below minimum", channel: 0, global: 999, wantTimeout: 1000},
-		{name: "global above maximum", channel: 0, global: 180001, wantTimeout: 180000},
+		{name: "global above maximum", channel: 0, global: 100000000, wantTimeout: 99999999},
 	}
 
 	for _, tt := range tests {

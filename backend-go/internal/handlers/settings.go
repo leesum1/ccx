@@ -107,20 +107,20 @@ func SetCircuitBreaker(cfgManager *config.ConfigManager) gin.HandlerFunc {
 			}
 		}
 		if req.StreamFirstContentTimeoutMs != nil {
-			if *req.StreamFirstContentTimeoutMs < 5000 || *req.StreamFirstContentTimeoutMs > 300000 {
-				c.JSON(400, gin.H{"error": "streamFirstContentTimeoutMs 必须在 5000-300000 之间"})
+if *req.StreamFirstContentTimeoutMs < 5000 || *req.StreamFirstContentTimeoutMs > 99999999 {
+			c.JSON(400, gin.H{"error": "streamFirstContentTimeoutMs 必须在 5000-99999999 之间"})
 				return
 			}
 		}
 		if req.StreamInactivityTimeoutMs != nil {
-			if *req.StreamInactivityTimeoutMs < 1000 || *req.StreamInactivityTimeoutMs > 180000 {
-				c.JSON(400, gin.H{"error": "streamInactivityTimeoutMs 必须在 1000-180000 之间"})
+if *req.StreamInactivityTimeoutMs < 1000 || *req.StreamInactivityTimeoutMs > 99999999 {
+			c.JSON(400, gin.H{"error": "streamInactivityTimeoutMs 必须在 1000-99999999 之间"})
 				return
 			}
 		}
 		if req.StreamToolCallIdleTimeoutMs != nil {
-			if *req.StreamToolCallIdleTimeoutMs < 30000 || *req.StreamToolCallIdleTimeoutMs > 300000 {
-				c.JSON(400, gin.H{"error": "streamToolCallIdleTimeoutMs 必须在 30000-300000 之间"})
+if *req.StreamToolCallIdleTimeoutMs < 30000 || *req.StreamToolCallIdleTimeoutMs > 99999999 {
+			c.JSON(400, gin.H{"error": "streamToolCallIdleTimeoutMs 必须在 30000-99999999 之间"})
 				return
 			}
 		}
